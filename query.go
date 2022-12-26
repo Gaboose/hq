@@ -1,4 +1,4 @@
-package main
+package hq
 
 type Filter struct {
 	Comma []Comma `@@ ("," @@)*`

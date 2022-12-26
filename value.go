@@ -1,4 +1,4 @@
-package main
+package hq
 
 import (
 	"bytes"
@@ -199,4 +199,12 @@ func (v *Value) MarshalJSON() ([]byte, error) {
 	default:
 		panic("string: unexpected value kind")
 	}
+}
+
+func must[T any](t T, err error) T {
+	if err != nil {
+		panic(err)
+	}
+
+	return t
 }

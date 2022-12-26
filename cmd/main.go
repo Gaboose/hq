@@ -5,15 +5,9 @@ import (
 	"fmt"
 	"io"
 	"os"
+
+	"github.com/Gaboose/hq"
 )
-
-func must[T any](t T, err error) T {
-	if err != nil {
-		panic(err)
-	}
-
-	return t
-}
 
 func mainErr() error {
 	queryRaw := flag.Arg(0)
@@ -22,7 +16,7 @@ func mainErr() error {
 		return err
 	}
 
-	out, err := Exec(queryRaw, os.Stdin)
+	out, err := hq.Exec(queryRaw, os.Stdin)
 	if err != nil {
 		return err
 	}
